@@ -1,6 +1,12 @@
 <h2 id="title">Welcome to AIRP2N</h2>
 
+<p>We hope you find exactly what you're looking for in a place to stay.</p>
 
+<ul>
+  {{#each model as |rental-from-template|}}
+    {{rental-tile rental-in-component=rental-from-template}}
+  {{/each}}
+</ul>
 
 
 
