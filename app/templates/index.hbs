@@ -4,7 +4,7 @@
 
 <ul>
   {{#each model as |rental-from-template|}}
-    {{rental-tile rental-in-component=rental-from-template destroyRental="destroyRental"}}
+    {{rental-tile rental-in-component=rental-from-template update="update" destroyRental="destroyRental"}}
   {{/each}}
 </ul>
 
