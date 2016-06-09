@@ -9,7 +9,7 @@
 5. Create database on firebase to store model data:
   * get key and put in config/ environment
 
-6. Create route handlers about.js and about.hbs in terminal: //Make a 'contact' page too if you like. refer to BB
+6. Create route handler and template for 'about' page in terminal: //Make a 'contact' page too if you like. refer to BB
   * ember g route pageName
     * will generate 'routes/about.js'
     * will generate 'templates/about.hbs'
@@ -211,6 +211,49 @@
                         }
 
 
+
+
+================================================================================
+                  DYNAMIC ROUTING - displays detail for a single rental object
+================================================================================
+37. Generate 'rental' route handler and template in terminal:
+    * ember g route rental
+      * This will look like routes/rental.js
+      * This will look like templates/rental.hbs
+
+38. Add dynamic segment to 'app/router.js': //represent id of a given rental in Firebase
+      * this.route('rental', {path: '/rental/:rental_id'}); //When id matches with one in a link from our app, it will map URL to 'rental.js' route handler, and
+                                                            //sends a params hash that includes the value of the :rental_id segment to the URL.
+
+39. Locate records in rental.js route handler:
+    model(params){
+      return this.store.findRecord('rental', params.rental_id); refer to
+    },
+
+40. rental.js route will render rental.hbs template.
+      Enter code in rental.hbs template:
+        * <h2>More information about {{model.owner}} {{model.type}}</h2>
+
+41. GENERATE rental-detail component to display details about this model:
+        * ember g component rental-detail
+          * This will look like 'app/components/rental-detail.js'
+          * This will look like 'templates/components/rental-detail.hbs'
+
+42. Render this component on rental.hbs template. Define components 'rental' as the current model:
+      * <h2>...</h2>
+        {{rental-detail rental=model}}
+
+REFACTOR NEXT
+
+
+
+
+
+
+
+
+
+=============================================================
 =============================================================
                           HELPERS
 =============================================================
@@ -292,3 +335,11 @@ LL. update-rental form format:
       <button {{action 'updateInComponent' rental-in-component}}>Save</button>
     </form>
   </div>
+
+MM. dynamic segment:
+      * placeholder that may be dynamically updated depending on circumstances(ie. which link we click to travel to this route)
+
+NN. findRecord:
+    * takes 2 arguments:
+        * type of object('rental')
+        * objects specific id (params.rental_id)
