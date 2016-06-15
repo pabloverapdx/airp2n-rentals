@@ -4,10 +4,14 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'airp2n',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://airp2n.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: "AIzaSyDdoLy-tT358bE94ln10KUdUIP8K1gD8BA",
+      authDomain: "airp2n-4d73e.firebaseapp.com",
+      databaseURL: "https://airp2n-4d73e.firebaseio.com",
+      storageBucket: "airp2n-4d73e.appspot.com",
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

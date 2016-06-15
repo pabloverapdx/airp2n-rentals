@@ -1,15 +1,19 @@
-<h2 id="title">Welcome to AIRP2N</h2>
+<h1 id="title">Welcome to AIRP2N</h1>
 
-<p>We hope you find exactly what you're looking for in a place to stay.</p>
+We hope you find exactly what you're looking for in a place to stay.
 
+<h2> Available Rentals</h2>
 <ul>
-  {{#each model as |rental|}}
+  {{#each model.rentals as |rental|}}
     {{rental-tile rental=rental}}
   {{/each}}
 </ul>
 
-{{new-rental save2="save3"}}
+<h2>Cities</h2>
+<ul>
+  {{#each model.cities as |city|}}
+  <li>{{#link-to 'city' city.id}}{{city.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
 
-{{#link-to 'about'}}About us{{/link-to}}
-<br>
-{{#link-to 'contact'}}Contact us.{{/link-to}}
+{{new-city saveCity="saveCity"}}
