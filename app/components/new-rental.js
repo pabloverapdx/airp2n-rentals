@@ -15,6 +15,10 @@ export default Ember.Component.extend({
         bedrooms: this.get('bedrooms'),
       };
       this.set('addNewRental', false);
+      this.set('owner',"");
+      this.set('city', "");
+      this.set('type',"");
+      this.set('image',"");
       this.sendAction('save2', params);
     }
   }
